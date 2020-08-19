@@ -1,0 +1,37 @@
+.highlight {
+  width: 110rem;
+  display: flex;
+  height: 40rem;
+  justify-content: space-between;
+  padding: 4rem 0;
+
+  &-card {
+    width: 35.5rem;
+    height: 34rem;
+    box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.3);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    .image {
+      width: 100%;
+      height: 70%;
+      margin-bottom: 2rem;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .details {
+      padding-left: 2rem;
+      .title {
+        font-size: 2rem;
+      }
+      .description {
+        font-size: 1.4rem;
+        opacity: 0.5;
+      }
+    }
+  }
+}

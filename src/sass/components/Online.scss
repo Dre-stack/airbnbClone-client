@@ -1,0 +1,88 @@
+.online {
+  width: 100%;
+  background: black;
+  margin-top: 4rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 0;
+
+  &-top {
+    width: 110rem;
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+      width: 50%;
+      margin-bottom: 3rem;
+      h3 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.4rem;
+        width: 80%;
+        font-weight: 300;
+      }
+    }
+    button {
+      align-self: flex-start;
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &-bottom {
+    display: grid;
+    width: 110rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 25rem 25rem;
+    grid-template-areas:
+      'allison allison allegra merv'
+      'allison allison pedro pedro';
+    gap: 2rem;
+
+    .allison {
+      background-image: url('../../img/gal1.jpg');
+      grid-area: allison;
+    }
+    .allegra {
+      background-image: url('../../img/gsl2.jpg');
+      grid-area: allegra;
+    }
+    .merv {
+      background-image: url('../../img/gal3.jpg');
+      grid-area: merv;
+    }
+    .pedro {
+      background-image: url('../../img/gal4.jpg');
+      grid-area: pedro;
+    }
+    .item {
+      background-size: cover;
+      border-radius: 2rem;
+      position: relative;
+      overflow: hidden;
+
+      .title {
+        position: absolute;
+        bottom: -2px;
+        height: 6.5rem;
+        background-color: #201f1f;
+        width: 100%;
+        font-size: 1.4rem;
+        padding: 1rem 0 2rem 2rem;
+
+        p {
+          width: 90%;
+        }
+      }
+    }
+  }
+}

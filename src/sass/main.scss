@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600&display=swap');
+
+@font-face {
+  font-family: 'Circular Std Book';
+  src: url('//db.onlinewebfonts.com/t/860c3ec7bbc5da3e97233ccecafe512e.eot');
+  src: url('//db.onlinewebfonts.com/t/860c3ec7bbc5da3e97233ccecafe512e.eot?#iefix')
+      format('embedded-opentype'),
+    url('//db.onlinewebfonts.com/t/860c3ec7bbc5da3e97233ccecafe512e.woff2')
+      format('woff2'),
+    url('//db.onlinewebfonts.com/t/860c3ec7bbc5da3e97233ccecafe512e.woff')
+      format('woff'),
+    url('//db.onlinewebfonts.com/t/860c3ec7bbc5da3e97233ccecafe512e.ttf')
+      format('truetype'),
+    url('//db.onlinewebfonts.com/t/860c3ec7bbc5da3e97233ccecafe512e.svg#Circular Std Book')
+      format('svg');
+}
+
+@import './components/Home.scss';
+@import './base/base.scss';
+@import './components/Highlight.scss';
+@import './components/Online.scss';
