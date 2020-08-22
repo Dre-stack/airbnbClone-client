@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from './Header';
+import Search from './Search';
 
 function Showcase() {
   return (
     <div className="showcase">
       <Header />
+      <Search className="search" />
       <div className="cta">
         <h3 className="heading">
           Get out and stretch <br /> your imagination

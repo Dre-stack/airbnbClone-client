@@ -14,8 +14,14 @@
     url('//db.onlinewebfonts.com/t/860c3ec7bbc5da3e97233ccecafe512e.svg#Circular Std Book')
       format('svg');
 }
-
+$main-red: #ff385c;
 @import './components/Home.scss';
 @import './base/base.scss';
 @import './components/Highlight.scss';
 @import './components/Online.scss';
+@import './abstracts/variables.scss';
+@import './components/Search.scss';
+@import './components/Modal.scss';
+@import './base/animations.scss';
+@import './components/Login.scss';
+@import './base/utils.scss';

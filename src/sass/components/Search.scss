@@ -1,0 +1,282 @@
+.search {
+  width: 75%;
+  padding: 0 9rem;
+  position: absolute;
+  top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .search-options {
+    width: 80%;
+    margin-bottom: 2rem;
+    color: white;
+    .links {
+      display: flex;
+      list-style: none;
+      justify-content: space-between;
+      font-size: 1.4rem;
+
+      .link-item {
+        cursor: pointer;
+        position: relative;
+
+        &::after {
+          content: '';
+          width: 0;
+          opacity: 0;
+          height: 0.2rem;
+          background: white;
+          position: absolute;
+          bottom: -0.6rem;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: all 0.2s;
+          cursor: pointer;
+        }
+        &:hover {
+          opacity: 0.8;
+          &::after {
+            width: 0.4rem;
+            opacity: 1;
+          }
+        }
+
+        &.active {
+          &:hover {
+            opacity: 1;
+          }
+          cursor: default;
+          &::after {
+            width: 1.8rem;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  .search-form {
+    width: 100%;
+    .form-wrapper {
+      width: 100%;
+      height: 7rem;
+      display: flex;
+      background: white;
+      border-radius: 1rem;
+      align-items: center;
+      cursor: pointer;
+      // justify-content: space-between;
+
+      .location {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 0.5rem 3rem;
+        height: 60%;
+        width: 33.5%;
+        justify-content: center;
+        border-right: 1px solid #dbdbdb;
+        // cursor: pointer;
+        // &::after {
+        //   position: absolute;
+        //   // background: grey;
+        //   top: 0;
+        //   height: 100%;
+        //   width: 100%;
+        //   content: '';
+        // }
+
+        label {
+          font-size: 1.3rem;
+          font-weight: 600;
+        }
+        input {
+          border: none;
+          &:focus {
+            outline: none;
+          }
+        }
+        .autocomplete-dropdown-container {
+          position: absolute;
+          top: 7.5rem;
+          z-index: 6;
+          left: 0;
+          width: 50rem;
+          border-radius: 3rem;
+          height: auto;
+          overflow: hidden;
+          max-height: 40rem;
+          overflow-y: auto;
+          box-shadow: -1px 0px 11px 2px rgba(0, 0, 0, 0.2);
+          // padding: 1rem 0;
+
+          .suggestion {
+            background-color: white;
+            padding: 2rem 4rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            .marker {
+              margin-right: 2rem;
+              background-color: #dbdbdb;
+              padding: 1.5rem;
+              border-radius: 1rem;
+            }
+            &:hover {
+              background-color: #f3f3f3;
+            }
+          }
+        }
+      }
+      .date {
+        width: 33.5%;
+        display: flex;
+        justify-content: center;
+        border-right: 1px solid #dbdbdb;
+      }
+      .guest-search {
+        display: flex;
+        position: relative;
+        width: 33.5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem 0 3rem;
+
+        .guest {
+          h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+          }
+          h4 {
+            font-weight: 300;
+            font-size: 1.2rem;
+          }
+        }
+        .search-icons {
+          color: white;
+          display: flex;
+          background: $main-red;
+          align-items: center;
+          font-size: 1.6rem;
+          padding: 0 2rem;
+          height: 5.5rem;
+          border-radius: 1rem;
+
+          p {
+            margin-left: 1rem;
+          }
+        }
+        .guest-input {
+          position: absolute;
+          background-color: white;
+          top: 7.5rem;
+          right: 0rem;
+          width: 40rem;
+          padding: 2rem 3rem;
+          border-radius: 4rem;
+          visibility: hidden;
+          box-shadow: -1px 0px 11px 2px rgba(0, 0, 0, 0.2);
+          &.active {
+            visibility: visible;
+          }
+          cursor: default;
+          .item {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem 0;
+            align-items: center;
+            &:not(:last-child) {
+              border-bottom: 1px solid #e9e3e3;
+            }
+
+            .left {
+              h3 {
+                font-size: 1.5rem;
+                font-weight: 400;
+              }
+              h5 {
+                font-size: 1.4rem;
+                font-weight: 200;
+              }
+            }
+            .right {
+              width: 30%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              font-size: 1.6rem;
+              font-weight: 300;
+
+              .guest-btn {
+                background: transparent;
+                border: 1px solid #dbdbdb;
+                padding: 0.7rem 0.9rem;
+                border-radius: 50%;
+                cursor: pointer;
+                &:focus {
+                  outline: none;
+                }
+
+                &.inactive {
+                  // pointer-events: none;
+                  cursor: not-allowed;
+                  // pointer-events: none;
+                  opacity: 0.2;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.modal {
+    width: 95%;
+    height: 80%;
+    border-radius: 5rem;
+    padding: 4rem;
+    color: black;
+    z-index: 1000;
+    // position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    animation: modalMoveDown 0.4s;
+    .close-button {
+      position: absolute;
+      top: 2rem;
+      right: 5rem;
+      font-size: 2rem;
+      color: grey;
+      cursor: pointer;
+      background: transparent;
+      padding: 1rem;
+      border-radius: 50%;
+      border: none;
+      &:hover {
+        background: #f1f0f0;
+      }
+    }
+    .search-options {
+      color: black;
+      width: 60%;
+      .links {
+        margin-bottom: 1rem;
+        .link-item {
+          &::after {
+            background-color: black;
+          }
+        }
+      }
+    }
+    .search-form {
+      .form-wrapper {
+        // width: 70%;
+        border: 1px solid rgba($color: #000000, $alpha: 0.5);
+      }
+    }
+  }
+}

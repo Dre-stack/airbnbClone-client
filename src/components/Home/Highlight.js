@@ -23,8 +23,8 @@ const data = [
 function Highlight() {
   return (
     <div className="highlight">
-      {data.map((item) => (
-        <div className="highlight-card">
+      {data.map((item, i) => (
+        <div className="highlight-card" key={i}>
           <div className="image">
             <img src={item.picture} alt={item.title} />
           </div>

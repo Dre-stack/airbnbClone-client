@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 function SearchOptions({ setSearchFormLayout }) {
   const [active, setActive] = useState(1);
 
-  useEffect(() => {
-    setSearchFormLayout(active);
-  }, [active, setSearchFormLayout]);
+  // useEffect(() => {
+  //   setSearchFormLayout(active);
+  // }, [active, setSearchFormLayout]);
 
   return (
-    <nav className="search">
+    <nav className="search-options">
       <ul className="links">
         <li
           className={active === 1 ? 'link-item active' : 'link-item'}
