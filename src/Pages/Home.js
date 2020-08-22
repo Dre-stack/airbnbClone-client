@@ -1,7 +1,7 @@
 import React from 'react';
-import Showcase from './Showcase';
-import Highlight from './Highlight';
-import OnlineExperiences from './OnlineExperiences';
+import Showcase from '../components/Showcase';
+import Highlight from '../components/Highlight';
+import OnlineExperiences from '../components/OnlineExperience';
 
 function Home() {
   return (

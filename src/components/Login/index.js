@@ -5,7 +5,7 @@ import { LOG_IN, LOAD_USER } from '../../actions/types';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
 import { useHistory } from 'react-router-dom';
 
-function Login({ display, isOpen }) {
+function Login({ display, isOpen, signupOpen }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [submissionError, setSubmissionError] = useState({
@@ -18,13 +18,12 @@ function Login({ display, isOpen }) {
       .then((data) => {
         dispatch({ type: LOG_IN, payload: data.token });
         dispatch({ type: LOAD_USER, payload: data.user });
-        console.log(data.user);
+
         isOpen(false);
         history.push('/');
         setSubmitting(false);
       })
       .catch((err) => {
-        // console.log(err.data);
         setSubmissionError({ status: true, message: err.message });
         setSubmitting(false);
       });
@@ -39,14 +38,14 @@ function Login({ display, isOpen }) {
         <h3>Log in</h3>
       </div>
       <div className="form">
-        <div>{submissionError.message}</div>
+        <div className="form-error">{submissionError.message}</div>
 
         <Formik
           initialValues={{ email: '', password: '' }}
           validate={(values) => {
             const errors = {};
             if (!values.email) {
-              errors.email = 'Required';
+              errors.email = 'Email is required';
             } else if (
               !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
                 values.email.toLowerCase().trim()
@@ -54,28 +53,47 @@ function Login({ display, isOpen }) {
             ) {
               errors.email = 'Invalid email address';
             }
+            if (!values.password) {
+              errors.password = 'Password is required';
+            }
             return errors;
           }}
           onSubmit={handleSubmit}
         >
-          {({ isSubmitting }) => (
+          {({ isSubmitting, errors }) => (
             <Form className="form-wrapper">
               <div className="input-wrapper">
                 <Field
                   type="email"
                   name="email"
-                  className="form-input bb"
+                  className={
+                    errors.email
+                      ? 'form-input  error'
+                      : 'form-input bb'
+                  }
                   placeholder="Email"
                 />
                 <Field
                   type="password"
                   name="password"
-                  className="form-input"
+                  className={
+                    errors.password
+                      ? 'form-input  error'
+                      : 'form-input'
+                  }
                   placeholder="Password"
                 />
               </div>
-              <ErrorMessage name="email" component="div" />
-              <ErrorMessage name="password" component="div" />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className="form-error"
+              />
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="form-error"
+              />
 
               <button
                 type="submit"
@@ -84,6 +102,20 @@ function Login({ display, isOpen }) {
               >
                 Sign In
               </button>
+              <div className="forgot-password">
+                <a href="##"> Forgot password?</a>
+              </div>
+              <div className="signup">
+                <span>Don't have an account?</span>
+                <h3
+                  onClick={() => {
+                    isOpen(false);
+                    signupOpen(true);
+                  }}
+                >
+                  Sign up
+                </h3>
+              </div>
             </Form>
           )}
         </Formik>

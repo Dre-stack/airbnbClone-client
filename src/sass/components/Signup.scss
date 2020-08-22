@@ -1,0 +1,9 @@
+.login.modal.signup {
+  animation: modalMoveDown 0.4s;
+  height: 70rem;
+
+  .form {
+    min-height: 66rem;
+    overflow-y: auto;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header';
-import Search from './Search';
+import Header from '../Header';
+import Search from '../Search';
 
 function Showcase() {
   return (

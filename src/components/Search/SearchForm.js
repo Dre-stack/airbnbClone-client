@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'react-dates/initialize';
+import moment from 'moment';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import PlacesAutocomplete, {
@@ -10,8 +11,11 @@ import GuestInput from './GuestInput';
 
 function SearchForm({ layout }) {
   const [location, setLocation] = useState('');
-  const [date, setDate] = useState({ startDate: '', endDate: '' });
-  const [focusedInput, setFocuseInput] = useState('');
+  const [date, setDate] = useState({
+    startDate: null,
+    endDate: null,
+  });
+  const [focusedInput, setFocusedInput] = useState(null);
   const [guests, setGuests] = useState('');
   const [displayGuestInput, setDisplayGuestInput] = useState(false);
 
@@ -64,7 +68,7 @@ function SearchForm({ layout }) {
               loading,
             }) => (
               <React.Fragment>
-                <label classname="location-label">Location</label>
+                <label className="location-label">Location</label>
                 <input
                   {...getInputProps({
                     placeholder: 'Where are you going?',
@@ -106,7 +110,7 @@ function SearchForm({ layout }) {
             } // PropTypes.func.isRequired,
             focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
             onFocusChange={(focusedInput) =>
-              setFocuseInput(focusedInput)
+              setFocusedInput(focusedInput)
             } // PropTypes.func.isRequired,
             startDatePlaceholderText="Check In"
             endDatePlaceholderText="Check Out"

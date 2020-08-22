@@ -65,7 +65,7 @@ function GuestInput({ setGuestsTotal, display, setDisplay }) {
           >
             <i className="fas fa-minus"></i>
           </button>
-          <spam>{guests.adults}</spam>
+          <span>{guests.adults}</span>
           <button
             className={
               guests.adults < 16 ? 'guest-btn' : 'guest-btn inactive'
@@ -101,7 +101,7 @@ function GuestInput({ setGuestsTotal, display, setDisplay }) {
           >
             <i className="fas fa-minus"></i>
           </button>
-          <spam>{guests.children}</spam>
+          <span>{guests.children}</span>
           <button
             className={
               guests.children < 5 ? 'guest-btn' : 'guest-btn inactive'
@@ -140,7 +140,7 @@ function GuestInput({ setGuestsTotal, display, setDisplay }) {
           >
             <i className="fas fa-minus"></i>
           </button>
-          <spam>{guests.infants}</spam>
+          <span>{guests.infants}</span>
           <button
             className={
               guests.infants < 5 ? 'guest-btn' : 'guest-btn inactive'

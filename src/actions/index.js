@@ -11,6 +11,16 @@ export const signinUser = async (data) => {
     throw err.response.data;
   }
 };
+export const signupUser = async (data) => {
+  try {
+    const response = await axios.post('/api/users/signup', {
+      ...data,
+    });
+    return response.data;
+  } catch (err) {
+    throw err.response.data;
+  }
+};
 
 export const loadUser = () => async (dispatch) => {
   try {

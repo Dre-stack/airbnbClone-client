@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import SideNav from './SideNav';
 import Modal from '../utils/Modal';
-import Search from './Search';
+import Search from '../Search';
 import Login from '../Login';
+import Signup from '../Signup';
 
 function Header() {
   const [displaySideNav, setDisplaySideNav] = useState(false);
@@ -10,6 +11,7 @@ function Header() {
   const [searchBar, setSearchBar] = useState(false);
   const [searchModal, setSearchModal] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const [signupModal, setSignupModal] = useState(false);
 
   const handleScroll = useCallback(() => {
     if (window.pageYOffset > 0) {
@@ -69,6 +71,7 @@ function Header() {
             display={displaySideNav}
             setDisplay={setDisplaySideNav}
             displayLogin={setLoginModal}
+            displaySignup={setSignupModal}
           />
         </div>
       </div>
@@ -79,7 +82,12 @@ function Header() {
       )}
       {loginModal && (
         <Modal>
-          <Login isOpen={setLoginModal} />
+          <Login isOpen={setLoginModal} signupOpen={setSignupModal} />
+        </Modal>
+      )}
+      {signupModal && (
+        <Modal>
+          <Signup isOpen={setSignupModal} />
         </Modal>
       )}
     </div>

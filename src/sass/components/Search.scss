@@ -107,6 +107,11 @@
           max-height: 40rem;
           overflow-y: auto;
           box-shadow: -1px 0px 11px 2px rgba(0, 0, 0, 0.2);
+          scrollbar-width: none;
+          &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+          }
           // padding: 1rem 0;
 
           .suggestion {
@@ -167,6 +172,7 @@
           }
         }
         .guest-input {
+          z-index: 5;
           position: absolute;
           background-color: white;
           top: 7.5rem;

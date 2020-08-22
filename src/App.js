@@ -10,7 +10,7 @@ import { loadUser } from './actions';
 import setAxiosAuthHeader from './utils/setAxiosAuthHeader';
 
 //COMPONENTS
-import Home from './components/Home';
+import Home from './Pages/Home';
 import Login from './components/Login';
 
 function App({ loadUser }) {
