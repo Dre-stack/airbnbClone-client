@@ -18,10 +18,8 @@ function Login({ display, isOpen, signupOpen }) {
       .then((data) => {
         dispatch({ type: LOG_IN, payload: data.token });
         dispatch({ type: LOAD_USER, payload: data.user });
-
         isOpen(false);
         history.push('/');
-        setSubmitting(false);
       })
       .catch((err) => {
         setSubmissionError({ status: true, message: err.message });

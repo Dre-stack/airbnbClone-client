@@ -1,0 +1,117 @@
+.create-listing {
+  position: relative;
+  top: 8rem;
+  padding: 0 12rem;
+  width: 100%;
+  .progress-bar {
+    width: 60%;
+    height: 2rem;
+    border: 1px solid rgba($color: #000000, $alpha: 1);
+    margin-bottom: 3rem;
+    // position: fixed;s
+    .content {
+      background-color: $main-green;
+      height: 100%;
+      transition: all 0.4s;
+    }
+  }
+  .success-message {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8rem;
+    .message {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+  .content {
+    width: 100%;
+    margin-bottom: 4rem;
+    .pages {
+      width: 100%;
+      display: flex;
+      .left {
+        width: 70%;
+        .heading {
+          font-size: 4rem;
+          margin-bottom: 3rem;
+        }
+        .heading-sub {
+          font-size: 1.6rem;
+          margin-bottom: 1rem;
+        }
+        h3 {
+          font-size: 2rem;
+          opacity: 0.6;
+        }
+        p {
+          font-size: 1.8rem;
+          opacity: 0.8;
+          margin: 2rem 0;
+          width: 80%;
+        }
+        .upload-box {
+          width: 100%;
+          border: 1px dashed rgba($color: #000000, $alpha: 1);
+          height: 10rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          span {
+            font-size: 1.3rem;
+            margin-left: 2rem;
+          }
+        }
+        .map {
+          width: 60rem;
+          height: 30rem;
+        }
+        .form {
+          width: 60%;
+          margin-top: 2rem;
+          display: flex;
+          flex-direction: column;
+          .top {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            & > * {
+              width: 49%;
+              font-family: $main-font;
+            }
+          }
+          .location {
+            margin-top: 1rem;
+            position: relative;
+            width: 100%;
+            .listing {
+              width: 100%;
+            }
+            &-input {
+              border: 1px solid rgba($color: #000000, $alpha: 0.6);
+              width: 100%;
+              border-radius: 1rem;
+              font-size: 16px;
+              padding: 2rem 1rem;
+              margin-bottom: 2rem;
+
+              &:focus {
+                outline: none;
+                border: 2px solid rgba($color: #000000, $alpha: 1);
+              }
+            }
+          }
+        }
+        .buttons {
+          display: flex;
+          justify-content: space-between;
+          width: 60%;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}

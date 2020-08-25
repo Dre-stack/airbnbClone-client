@@ -4,14 +4,16 @@ import Modal from '../utils/Modal';
 import Search from '../Search';
 import Login from '../Login';
 import Signup from '../Signup';
+import { useHistory } from 'react-router-dom';
 
-function Header() {
+function Header({ mode }) {
   const [displaySideNav, setDisplaySideNav] = useState(false);
   const [scroll, setScroll] = useState(false);
   const [searchBar, setSearchBar] = useState(false);
   const [searchModal, setSearchModal] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
   const [signupModal, setSignupModal] = useState(false);
+  const history = useHistory();
 
   const handleScroll = useCallback(() => {
     if (window.pageYOffset > 0) {
@@ -32,29 +34,36 @@ function Header() {
     };
   }, [handleScroll]);
 
+  const headerClassname = `header ${scroll ? 'scroll' : ''} ${
+    mode ? mode : ''
+  }`;
+
   return (
-    <div className={scroll ? 'header scroll' : 'header'}>
+    <div className={headerClassname}>
       <div className="header-top">
-        <div className="logo">
+        <div className="logo" onClick={() => history.push('/')}>
           <img
             src={
-              !scroll
-                ? require('../../img/whitetrans.png')
-                : require('../../img/logotrans.png')
+              scroll || mode === 'account'
+                ? require('../../img/logotrans.png')
+                : require('../../img/whitetrans.png')
             }
             alt="logo"
           />
         </div>
 
-        {searchBar && (
-          <div
-            className="scroll-searchbar"
-            onClick={() => setSearchModal(true)}
-          >
-            <i className="fas fa-search"></i>
-            <h3>Add a location</h3>
-          </div>
-        )}
+        <div
+          className={
+            searchBar
+              ? 'scroll-searchbar'
+              : 'scroll-searchbar disabled'
+          }
+          onClick={() => setSearchModal(true)}
+        >
+          <i className="fas fa-search"></i>
+          <h3>Add a location</h3>
+        </div>
+
         <div
           className="icons"
           onClick={() => setDisplaySideNav(!displaySideNav)}

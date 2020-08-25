@@ -12,6 +12,9 @@ import setAxiosAuthHeader from './utils/setAxiosAuthHeader';
 //COMPONENTS
 import Home from './Pages/Home';
 import Login from './components/Login';
+import Account from './Pages/Account';
+import PrivateRoute from './components/Routing/privateRoute';
+import CreateAListing from './Pages/CreateAListing';
 
 function App({ loadUser }) {
   useEffect(() => {
@@ -27,7 +30,13 @@ function App({ loadUser }) {
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/login" exact component={Login} />
+          <Route path="/signin" exact component={Login} />
+          <PrivateRoute path="/myaccount" exact component={Account} />
+          <PrivateRoute
+            path="/listings/new"
+            exact
+            component={CreateAListing}
+          />
         </Switch>
       </Router>
     </div>

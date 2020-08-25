@@ -14,7 +14,6 @@ function Signup({ display, isOpen }) {
     status: false,
     message: '',
   });
-  console.log('birthday', birthday);
 
   const handleSubmit = (values, { setSubmitting }) => {
     const data = { ...values, birthday };
@@ -22,7 +21,7 @@ function Signup({ display, isOpen }) {
       .then((data) => {
         dispatch({ type: LOG_IN, payload: data.token });
         dispatch({ type: LOAD_USER, payload: data.user });
-        console.log(data.user);
+        // console.log(data.user);
         isOpen(false);
         history.push('/');
         setSubmitting(false);

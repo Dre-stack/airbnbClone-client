@@ -3,6 +3,7 @@ import { LOAD_USER, AUTH_ERROR, LOG_IN } from '../actions/types';
 const initial_state = {
   isLogedIn: false,
   user: null,
+  loading: true,
 };
 export default (state = initial_state, action) => {
   const { type, payload } = action;
@@ -12,6 +13,7 @@ export default (state = initial_state, action) => {
         ...state,
         isLogedIn: true,
         user: payload,
+        loading: false,
       };
 
     case AUTH_ERROR:
@@ -20,12 +22,14 @@ export default (state = initial_state, action) => {
         ...state,
         isLogedIn: false,
         user: null,
+        loading: false,
       };
     case LOG_IN:
       localStorage.setItem('authToken', payload);
       return {
         ...state,
         isLogedIn: true,
+        loading: false,
       };
 
     default:

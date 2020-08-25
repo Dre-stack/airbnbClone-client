@@ -14,7 +14,11 @@
     url('//db.onlinewebfonts.com/t/860c3ec7bbc5da3e97233ccecafe512e.svg#Circular Std Book')
       format('svg');
 }
+
 $main-red: #ff385c;
+$main-green: #008489;
+$main-font: 'Poppins', sans-serif;
+$font-2: 'Circular Std Book', sans-serif;
 @import './components/Home.scss';
 @import './base/base.scss';
 @import './components/Highlight.scss';
@@ -26,3 +30,6 @@ $main-red: #ff385c;
 @import './components/Login.scss';
 @import './base/utils.scss';
 @import './components/Signup.scss';
+@import './components/Header.scss';
+@import './components/Account.scss';
+@import './components//CreateListing.scss';

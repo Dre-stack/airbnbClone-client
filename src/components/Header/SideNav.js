@@ -70,11 +70,11 @@ function SideNav({
         ) : (
           <ul>
             <li className="bold">
-              <Link to="##">Account</Link>
+              <Link to="/myAccount">Account</Link>
             </li>
 
             <li>
-              <Link to="##">Host your home</Link>
+              <Link to="/listings/new">Host your home</Link>
             </li>
             <li className="with-border">
               <Link to="##">Host an experience</Link>
@@ -83,7 +83,7 @@ function SideNav({
               <Link to="##">Help</Link>
             </li>
             <li onClick={handleSignout}>
-              <Link to="##">Signout</Link>
+              <span>Signout</span>
             </li>
           </ul>
         )}
